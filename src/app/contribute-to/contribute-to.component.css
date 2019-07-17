@@ -1,0 +1,11 @@
+.card-group{
+    padding-top: 150px;
+}
+.card{
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.0);
+}
+.glow:hover{
+    color: black;
+    
+}
