@@ -10,6 +10,6 @@ export class UserService {
     const obj={name,email,message,subject}
     this
       .http
-        .post(`${this.url}`,obj).subscribe(res=>console.log(res))
+        .post(`${this.url}/add`,obj).subscribe(res=>console.log(res))
   }
 }
