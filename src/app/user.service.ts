@@ -12,4 +12,19 @@ export class UserService {
       .http
         .post(`${this.url}/add`,obj).subscribe(res=>console.log(res))
   }
+
+  
+  addData1(name,email,number){
+    const obj={name,email,number}
+    this
+      .http
+        .post(`${this.url}/add`,obj).subscribe(res=>console.log(res))
+  }
+
+  addData2(name,email,number,amount){
+    const obj={name,email,number,amount}
+    this
+      .http
+        .post(`${this.url}/add`,obj).subscribe(res=>console.log(res))
+  }
 }

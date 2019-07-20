@@ -12,7 +12,11 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
 import {FormsModule} from '@angular/forms'
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { GPhotosComponent } from './gphotos/gphotos.component';
+import { GVideosComponent } from './gvideos/gvideos.component';
+import { CDonationComponent } from './cdonation/cdonation.component';
+import { CertificateComponent } from './certificate/certificate.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,11 @@ import {HttpClientModule} from '@angular/common/http'
     ContactComponent,
     GalleryComponent,
     HeaderComponent,
-    SliderComponent
+    SliderComponent,
+    GPhotosComponent,
+    GVideosComponent,
+    CDonationComponent,
+    CertificateComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,9 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HeaderComponent } from './header/header.component';
+import { GPhotosComponent } from './gphotos/gphotos.component';
+import { GVideosComponent } from './gvideos/gvideos.component';
+import { CDonationComponent } from './cdonation/cdonation.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -18,7 +21,9 @@ const routes: Routes = [
   {path:'contact',component:ContactComponent},
   {path:'gallery',component:GalleryComponent},
   {path:'header',component:HeaderComponent},
-
+  {path:'gphotos',component:GPhotosComponent},
+  {path:'gvideos',component:GVideosComponent},
+  {path:'cdonation',component:CDonationComponent}
 
 ];
 

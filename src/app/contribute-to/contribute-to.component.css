@@ -1,5 +1,5 @@
 .card-group{
-    padding-top: 150px;
+    padding-top: 80px;
 }
 .card{
     padding: 20px;
@@ -8,4 +8,7 @@
 .glow:hover{
     color: black;
     
+}
+.contribute-header{
+    color: black;
 }
