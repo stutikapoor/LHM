@@ -18,7 +18,8 @@ export class CDonationComponent implements OnInit {
   }
 
   addData2(){
-    this.um.addData2(this.name,this.email,this.number,this.amount)
+    this.um.addData2(this.name,this.email,this.number,this.amount);
+    console.log(this.number)
   }
 
 }

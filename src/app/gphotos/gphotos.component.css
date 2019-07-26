@@ -1,9 +1,11 @@
 .photos{
   padding-top: 20px;
+  margin-top: 10em;
 }
 
 div.gallery {
     border: 1px solid #ccc;
+    float: left;
   }
   
   div.gallery:hover {

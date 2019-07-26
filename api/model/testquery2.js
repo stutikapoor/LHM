@@ -8,12 +8,11 @@ let user = new Schema({
     email:{
         type:String
     },
-    number: {
-        type: Number
-    },
+    number: Number
+    ,
     amount: {
         type: Number
     }
 },
 );
-module.exports = mongoose.model('User', user); 
+module.exports = mongoose.model('Users', user); 

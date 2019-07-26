@@ -23,11 +23,11 @@
             E-MAIL : <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" [(ngModel)]="email"/>
             <div class="validation"></div>
           </div>
-          <div class="form-group">
+          <div class="form-group">  
             PHONE NUMBER : <input type="number" class="form-control" name="number" id="number" placeholder="Your number" [(ngModel)]="number" />
             <div class="validation"></div>
             <br>
-            <div class="text-center"><button type="submit" (click)="addData()">View Contributions</button></div>
+            <div class="text-center"><button type="submit" (click)="addData()" [routerLink]="['/certi']">View Contributions</button></div>
             
           </div>
           
@@ -41,3 +41,4 @@
     
     </body>
   
+    <app-footer></app-footer>

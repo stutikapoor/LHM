@@ -6,3 +6,9 @@ body{
     background-size: 100%;
     background-position: fixed;
 }
+p{
+    margin-left: 20px
+}
+h2{
+    margin-left: 20px
+}

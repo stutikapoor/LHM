@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const mongoose  = require('mongoose');
 const bodyParser = require ('body-parser');
-
 const userRoute=require('./routes/users')
+const user2Route=require('./routes/user2')
 // const config = require('./config/database');
 
 // app.use(function(req, res, next) {
@@ -35,6 +35,7 @@ app.use(function(req, res, next) {
 // const userTestRoutes = require('./api/routes/userstest');
 
 app.use('/user',userRoute);
+app.use('/user2',userRoute);
 
 
 mongoose.connect('mongodb://localhost:27017/LHM',{ useNewUrlParser: true },()=>console.log("Db Connected"))

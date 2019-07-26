@@ -217,11 +217,12 @@ body {
     font-weight: 500;
     color: #fff;
     text-decoration: none;
-    background: #000;
-    border: 2px solid #2dc997;
+    background: red;
+    border: 2px solid white;
     padding: 10px;
     padding-left: 30px;
     padding-right: 30px;
+    border-radius: 25px;
   }
   .btn-g:hover{
     background :rgba(52, 59, 64, 0.6);
@@ -259,6 +260,13 @@ body {
     padding: 0;
     list-style: none;
   }
+
+  @media only screen and (max-width: 600px) {
+    .nav-menu, .nav-menu * {
+      /* background-color: blue; */
+    }
+  }
+  
   
   .nav-menu ul {
     position: absolute;
@@ -316,7 +324,7 @@ body {
      padding-top: 10px;
      height:40px;
     background:black;
-    padding-left: 37%;
+    padding-left: 25%;
     position:fixed;
     z-index:99;
     margin-left:0;
@@ -324,7 +332,10 @@ body {
   
   @media (max-width: 768px) {
     #nav-menu-container {
-      display: none;
+        /* font-size: 10px; */
+        padding-left:2%;
+        height:80px;
+      /* display: none; */
     }
   }
   
@@ -364,6 +375,7 @@ body {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
+    
   }
   
   .nav-menu ul {
@@ -576,7 +588,7 @@ body {
   
   #about .about-container .icon-box .icon {
     float: left;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.0);
     width: 64px;
     height: 64px;
     display: flex;
@@ -585,11 +597,11 @@ body {
     flex-direction: column;
     text-align: center;
     border-radius: 50%;
-    border: 2px solid #2dc997;
+    border: 2px solid black;
   }
   
   #about .about-container .icon-box .icon i {
-    color: #2dc997;
+    color: black;
     font-size: 24px;
   }
   
@@ -621,7 +633,7 @@ body {
   #facts .counters span {
     font-size: 48px;
     display: block;
-    color: #2dc997;
+    color:red;
   }
   
   #facts .counters p {
@@ -902,7 +914,7 @@ body {
   }
   
   #contributions .form button[type="submit"] {
-    background: #2dc997;
+    background:red;;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -910,7 +922,7 @@ body {
   }
   
   #contributions .form button[type="submit"]:hover {
-    background: #51d8ad;
+    background: black;
   }
   
   /* services Section
@@ -1153,7 +1165,7 @@ body {
   }
   
   #contact .form button[type="submit"] {
-    background: #2dc997;
+    background:red;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -1161,13 +1173,14 @@ body {
   }
   
   #contact .form button[type="submit"]:hover {
-    background: #51d8ad;
+    background: black;
   }
   
   /*--------------------------------------------------------------
   # Footer
   --------------------------------------------------------------*/
   #footer {
+    align:center;
     background: #343b40;
     padding: 30px 0;
     color: #fff;

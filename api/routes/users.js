@@ -3,7 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const User=require('../model/testquery');
+const Users=require('../model/testquery2');
 const router = express.Router();
+
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -89,3 +91,124 @@ router.get('/delete/:id',(req,res)=>{
     })
 })
 module.exports = router;
+
+/////////////////////////////////////////////////////signin//////////////////////////////////////////////////////
+router.post('/signin',(req,res)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+    console.log(email)
+    UserRegister.findOne({
+        email:email
+    },(err,user)=>{
+        if(err){
+            res.json(err);
+        }
+        else{
+            console.log(user);
+            if(user == null ){
+              res.json({message:"Check your Credentials"});
+            }
+            else if (user.password != password){
+                res.json({message:"Check your password"});
+            }
+            else{
+                res.json(user);
+            }
+        }
+    })
+})
+/////////////////////getdatabyid/////////////////////////////////////
+router.get('/getbyid/:id',(req,res)=>{
+    let id = req.params.id;
+    UserRegister.findOne({
+        _id:id
+    },(err,user)=>
+    {
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(user==null)
+            {
+                res.json({message:"Does not exist"});
+            }
+            else{
+                res.json(user);
+            }
+        }
+    })
+})
+
+
+router.post('/addRegister',function(req,res){
+    const city=req.body.city
+    const email=req.body.email
+    const name=req.body.name
+    const password=req.body.password
+    const address=req.body.address
+    new UserRegister({
+        address:address,
+        email:email,
+        name:name,
+        city:city,
+        password:password
+    }).save(function(err,data){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(data)
+            res.json(data)
+        }
+    })
+})
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+router.post('/cadd',function(req,res){
+    const name=req.body.name
+    const email=req.body.email
+    const number=req.body.number
+    const amount=req.body.amount
+     new Users({
+        name:name,
+        email:email,
+        number:number,
+        amount:amount,
+        
+    }).save(function(err,data){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(data)
+            res.json(data)
+        }
+    })
+})
+
+router.post('/cdadd',function(req,res){
+    const name=req.body.name
+    const email=req.body.email
+    const number=req.body.number
+    const amount=req.body.amount
+     new Users({
+        name:name,
+        email:email,
+        number:number,
+        amount:amount,
+        
+    }).save(function(err,data){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(data)
+            res.json(data)
+        }
+    })
+})
+
+
+
+
+// module.exports = router;

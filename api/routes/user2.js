@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const User=require('../model/testquery2');
+const Users=require('../model/testquery2');
 const router = express.Router();
 
 app.use(function(req, res, next) {
@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
   });
 
 router.get('/',function(req,res){
-    User.find(function(err,data){
+    Users.find(function(err,data){
         if(err){
             console.log(err)
         }
@@ -27,11 +27,12 @@ router.post('/add',function(req,res){
     const name=req.body.name
     const email=req.body.email
     const number=req.body.number
-     new User({
+    const amount=req.body.amount
+     new Users({
         name:name,
         email:email,
         number:number,
-        amout:amount,
+        amount:amount,
         
     }).save(function(err,data){
         if(err){
@@ -54,7 +55,7 @@ router.post('/update/:id',(req,res,next)=>{
         city : req.body.city,
         address : req.body.address
     };
-    User.findOneAndUpdate({_id:id}, UserUpdate,(err,data)=>{
+    Users.findOneAndUpdate({_id:id}, UserUpdate,(err,data)=>{
         if(err){
             console.log(err)
         }
@@ -69,7 +70,7 @@ router.post('/update/:id',(req,res,next)=>{
 /////////////////edit 
 router.get('/edit/:id',(req,res)=>{
     let id = req.params.id;
-    User.findById(id, function (err,data){
+    Users.findById(id, function (err,data){
         res.json(data);
 })
 })
@@ -77,13 +78,86 @@ router.get('/edit/:id',(req,res)=>{
 //////////////////////////////////////////////////delete data///////////////////////////////////////////////
 router.get('/delete/:id',(req,res)=>{
     let id=req.params.id
-    User.findOneAndRemove(id,(err,data)=>{
+    Users.findOneAndRemove(id,(err,data)=>{
         if(err){
             console.log(err)
         }
         else{
             res.json(data)
             console.log(data)
+        }
+    })
+})
+module.exports = router;
+
+
+/////////////////////////////////////////////////////signin//////////////////////////////////////////////////////
+router.post('/signin',(req,res)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+    console.log(email)
+    UserRegister.findOne({
+        email:email
+    },(err,user)=>{
+        if(err){
+            res.json(err);
+        }
+        else{
+            console.log(user);
+            if(user == null ){
+              res.json({message:"Check your Credentials"});
+            }
+            else if (user.password != password){
+                res.json({message:"Check your password"});
+            }
+            else{
+                res.json(user);
+            }
+        }
+    })
+})
+/////////////////////getdatabyid/////////////////////////////////////
+router.get('/getbyid/:id',(req,res)=>{
+    let id = req.params.id;
+    UserRegister.findOne({
+        _id:id
+    },(err,user)=>
+    {
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(user==null)
+            {
+                res.json({message:"Does not exist"});
+            }
+            else{
+                res.json(user);
+            }
+        }
+    })
+})
+
+
+router.post('/addRegister',function(req,res){
+    const city=req.body.city
+    const email=req.body.email
+    const name=req.body.name
+    const password=req.body.password
+    const address=req.body.address
+    new UserRegister({
+        address:address,
+        email:email,
+        name:name,
+        city:city,
+        password:password
+    }).save(function(err,data){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(data)
+            res.json(data)
         }
     })
 })
